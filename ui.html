@@ -1,0 +1,18 @@
+<h2>Number Creator</h2>
+<p>right: <input id="right" value="30"></p>
+<p>bottom: <input id="bottom" value="30"></p>
+<button id="create">Create</button>
+<button id="cancel">Cancel</button>
+<script>
+
+document.getElementById('create').onclick = () => {
+  const right = parseInt(document.getElementById('right').value, 10);
+  const bottom = parseInt(document.getElementById('bottom').value, 10);
+  parent.postMessage({ pluginMessage: { type: 'create-rectangles', right, bottom } }, '*')
+}
+
+document.getElementById('cancel').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+
+</script>
